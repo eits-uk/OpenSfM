@@ -721,7 +721,7 @@ def match_brute_force(
         matcher_type = "BruteForce-Hamming"
     else:
         matcher_type = "BruteForce"
-    matcher = cv2.DescriptorMatcher_create(matcher_type)
+    matcher = cv2.cuda.DescriptorMatcher_create(matcher_type)
     matcher.add([f2])
     if maskij is not None:
         matches = matcher.knnMatch(f1, k=2, masks=np.array([maskij]).astype(np.uint8))
